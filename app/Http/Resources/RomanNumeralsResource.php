@@ -14,6 +14,12 @@ class RomanNumeralsResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'Numerals' => $this->numerals,
+            'integer'  => $this->integer,
+            'usage_count' => $this->usage_count
+        ];
+        
     }
 }
