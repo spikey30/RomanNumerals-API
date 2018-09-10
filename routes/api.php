@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,4 +16,15 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+// set new routes for api
+Route::get('/Convert', 'RomanNumeralsController@index');
+
+Route::get('/Recent' , function () {
+    return "Recent";
+});
+
+Route::get('/Top10' , function () {
+    return "Top 10 ";
 });
