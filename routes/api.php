@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // set new routes for api
 
 //route to convert decimal to roman numerals
-Route::get('/Convert', 'RomanNumeralsController@convert');
+Route::get('/Convert/{int}', 'RomanNumeralsController@convert');
 
 // get last 15 entries 
 Route::get('/Latest' , 'RomanNumeralsController@getLatest');
