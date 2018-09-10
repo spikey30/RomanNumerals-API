@@ -2,10 +2,11 @@
 
 namespace App;
 
+use App\IntegerConversionInterface;
 
 class IntegerConversion implements IntegerConversionInterface
 {
-    private $lookup = [
+    private $numeral_list = [
         1000 => 'M',
         900 => 'CM',
         500 => 'D',
@@ -21,20 +22,24 @@ class IntegerConversion implements IntegerConversionInterface
         1 => 'I',
     ];
 
-    public function toRomanNumerals($integer) {
-        if($integer > 0 && $integer < 3999) {
+    public function toRomanNumerals($integer)
+    {
+        if ($integer < 0) {
+            return "<0";
+        }
+        if ($integer > 3999) {
+            return ">3999";
+        }
+        
             $numerals = '';
 
-            foreach($lookup as $limit => $glyph){
-                while ($number >= $limit) {
-                    $numerals .= $glyph;
-                    $number -= $limit;
-                }
+        foreach ($this->numeral_list as $value => $symbol) {
+            while ($integer >= $value) {
+                    $numerals .= $symbol;
+                    $integer -= $value;
             }
+        }
 
-            return $numerals;
-
-         }
-
+        return $numerals;
     }
 }
