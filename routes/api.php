@@ -19,12 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // set new routes for api
-Route::get('/Convert', 'RomanNumeralsController@index');
 
-Route::get('/Recent' , function () {
-    return "Recent";
-});
+//route to convert decimal to roman numerals
+Route::get('/Convert', 'RomanNumeralsController@convert');
 
-Route::get('/Top10' , function () {
-    return "Top 10 ";
-});
+// get last 15 entries 
+Route::get('/Latest' , 'RomanNumeralsController@getLatest');
+
+// get the top converted decimals by usage count
+Route::get('/Top10', 'RomanNumeralsController@getTop10');
