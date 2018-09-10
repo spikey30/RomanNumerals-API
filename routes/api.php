@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,8 +22,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //route to convert decimal to roman numerals
 Route::get('/Convert/{int}', 'RomanNumeralsController@convert');
 
-// get last 15 entries 
-Route::get('/Latest' , 'RomanNumeralsController@getLatest');
+// get last 15 entries
+Route::get('/Latest', 'RomanNumeralsController@getLatest');
 
 // get the top converted decimals by usage count
 Route::get('/Top10', 'RomanNumeralsController@getTop10');
